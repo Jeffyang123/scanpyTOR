@@ -1,0 +1,99 @@
+install.packages("dior.tar.gz", repos = NULL, type = "source")
+
+install.packages("IRkernel")
+IRkernel::installspec(user = T)
+
+
+
+install.packages("dior-main.zip", repos = NULL, type = "source")
+
+> install.packages("dior.tar.gz", repos = NULL, type = "source")
+ERROR: dependencies 'Seurat', 'hdf5r', 'SingleCellExperiment', 'SummarizedExperiment', 'Hmisc' are not available for package 'dior'
+* removing '/opt/conda/lib/R/library/dior'
+Warning message:
+In install.packages("d
+
+
+BiocManager::install("Hmisc")
+
+
+#docker images里用这个
+#devtools::install_github('IRkernel/IRkernel')
+install.packages("IRkernel")
+IRkernel::installspec(user = T)
+
+name = 'ir40', displayname = 'R 4.0', 
+————————————————
+版权声明：本文为CSDN博主「闻人玲珑」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/weixin_41242128/article/details/113524475
+
+
+conda install -c r r-base=4.1 r-essentials  r-devtools
+
+
+
+#######################
+> BiocManager::install("Hmisc")
+arning: unable to access index for repository https://bioconductor.org/packages/3.14/workflows/src/contrib:
+  download from 'https://bioconductor.org/packages/3.14/workflows/src/contrib/PACKAGES' failed
+Bioconductor version 3.14 (BiocManager 1.30.16), R 4.1.2 (2021-11-01)
+Installing package(s) 'Hmisc'
+
+also installing the dependency ‘htmlTable’
+
+trying URL 'https://cloud.r-project.org/src/contrib/htmlTable_2.4.1.tar.gz'
+Content type 'application/x-gzip' length 439117 bytes (428 KB)
+==================================================
+downloaded 428 KB
+
+trying URL 'https://cloud.r-project.org/src/contrib/Hmisc_4.7-1.tar.gz'
+Content type 'application/x-gzip' length 792617 bytes (774 KB)
+==================================================
+downloaded 774 KB
+ hoeffd.o init.o jacklins.o largrec.o mChoice.o maxempr.o nstr.o ranksort.o rcorr.o string_box.o wclosest.o -lgfortran -lm -lgomp -lquadmath -lpthread -L/home/zhulab/miniconda3/envs/R4/lib/R/lib -lR
+installing to /home/zhulab/miniconda3/envs/R4/lib/R/library/00LOCK-Hmisc/00new/Hmisc/libs
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (Hmisc)
+>
+>
+> install.packages("dior.tar.gz", repos = NULL, type = "source")
+* installing *source* package ‘dior’ ...
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+Save workspace image? [y/n/c]: n
+(R4) zhulab@DESKTOP-574GPKI:/mnt/e/yyp/codeproject/format$ cd ../
+(R4) zhulab@DESKTOP-574GPKI:/mnt/e/yyp/codeproject$ jupyter notebook
+data='YTAsce.all_qc.rds'
+data=readRDS(data)
+file='./YTAsce.all_qc_tmp.h5'
+dior:::write_h5(data,file=file)
+
+
+
+dior:::read.rds 可以用 假如报错 要安装 getopt 包 进行正确传参
+
+#####一般情况下 安装 dior 和 diopy  就可以了，其他代码可以修改  增强对数据的理解，
+它这里中间的文件就是特定格式的tmp.h5 文件  可以转化为三种格式 ，见 scdior 的说明
+
+seurat 的data 对应 scanpy   raw.x   ，scaledata 对应X ;反过来scanpy   raw.x  默认对应了  seurat 的   data(报错counts),所以要检查数据。
+
+
+https://www.jianshu.com/p/9e0fb7c2c43f
+
+
+
+def read_rds(file: Union[str, None] = None,
+             object_type:str = 'seurat',
+             assay_name: str = 'RNA'
+            ) -> anndata.AnnData:  这个函数可以读rds 文件转 h5ad  也可以输入tmp.h5 文件文件转 h5ad
